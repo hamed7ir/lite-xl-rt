@@ -132,6 +132,9 @@ SDL3 needed **no source changes at all**; its toolchain file, the exact configur
 what was measured are at
 [hamed7ir/SDL-rt](https://github.com/hamed7ir/SDL-rt/tree/rt-arm32/rt-arm32).
 
+The installer is built from source in `installer/`, with its own README covering why it is an
+MSIL assembly rather than Inno or NSIS, and the three build gates.
+
 ---
 
 ## Toolchain
