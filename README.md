@@ -8,8 +8,8 @@
 > **[ARM32 documentation](README-ARM32.md)** &middot; the **Toolchain** section there explains why
 > a patched clang is required, and how to reproduce it with stock clang 18.1.8.
 >
-> This branch differs from upstream `v2.1.8` by **three commits**: two one-file changes to the
-> source and the build, and this documentation. Everything below is upstream's own README,
+> This branch changes **two files** of Lite XL's own source and build -- a `rencache.c` guard and
+> the FreeType wrap pin -- and adds documentation. Everything below is upstream's own README,
 > unchanged. Please report problems with the ARM32 build here, not to upstream.
 
 ---

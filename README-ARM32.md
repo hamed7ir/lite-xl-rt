@@ -45,16 +45,27 @@ The editor opens in about a second on the oldest hardware here.
 
 ## Install
 
-1. Download the package and unzip it anywhere.
+1. Download the setup package and unzip it anywhere.
 2. Run `LiteXLSetup.exe`.
 
-It installs **per user**, into `%LOCALAPPDATA%\Programs\Lite XL ARM32`, and needs **no
-administrator rights**. It adds an *"Open with Lite XL (ARM32)"* entry to the right-click menu for
-files, folders, and folder backgrounds.
+One window, no wizard. Pick a folder or take the default — `%LOCALAPPDATA%\Programs\Lite XL` — and
+tick what you want:
 
-To remove it: **Settings → Apps**, or run `LiteXLSetup.exe /uninstall`. Uninstall removes exactly
-what the install wrote — it keeps a record of every file and registry value it created and replays
-that list. It does not delete anything it did not create.
+- **Start menu shortcut**
+- **Desktop shortcut**
+- **Right-click "Open with Lite XL"** — for files, folders, and folder backgrounds
+
+It installs **per user** and needs **no administrator rights**. If you point it at a folder it
+cannot write to, it says so before starting rather than failing halfway — and it finds that out by
+trying to write there, not by guessing from the path.
+
+Install and uninstall were both run on the devices, on every supported version of Windows.
+
+**To remove it:** *Settings → Apps*, or run `LiteXLUninstall.exe` from the install folder. The
+uninstaller is installed alongside the app and removes the files, **both shortcuts** and the
+registry entries by replaying a record of exactly what was written. It has no wildcard delete and
+does not touch anything it did not create — including your settings in
+`%USERPROFILE%\.config\lite-xl`.
 
 **Requirements:** .NET Framework 4.0 for the installer only (present on Windows RT out of the box).
 The editor itself needs no runtime — the C runtime is linked statically, so there is no
@@ -74,12 +85,10 @@ The sidebar has a gear/cog button. In stock Lite XL it opens your `init.lua` for
 package includes the same add-on bundle the official Windows installer ships, which rebinds that
 button to a graphical **Settings** tab.
 
-**On ARM32 this has not been confirmed.** The one time the gear was pressed on an ARM32 device, it
-was a build *without* the bundle, and it opened `init.lua` — correct for that build, and not an
-answer for this one. The rebinding has been read in the add-on's own source and exercised on x86-64;
-nobody has clicked it on an ARM32 device yet. It is the one thing left to confirm by hand.
-
-If you get `init.lua`, that is useful information — please say so.
+Confirmed on the ARM32 devices: the gear opens the Settings tab, with panes for **Core**,
+**Colors**, **Plugins**, **Keybindings** and **About**. What you change is written to
+`user_settings.lua` in your own config directory, not into the program folder, so your settings
+survive reinstalling or moving the app.
 
 ---
 
@@ -97,8 +106,6 @@ If you get `init.lua`, that is useful information — please say so.
 
 ## Known limits
 
-- **The gear/Settings behaviour on ARM32 is unknown** — see above. It is the one user-facing
-  promise here that has not been exercised on the target.
 - **`lpm`, the Lite XL plugin manager, has no ARM32 Windows build.** It is a native binary and
   upstream publishes it for x86-64 and ARM64 only. The Settings UI — including its Plugins tab —
   works without it; that was measured, not assumed. What you cannot do is install further plugins
