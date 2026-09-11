@@ -1,3 +1,19 @@
+> ## This fork: Lite XL 2.1.8 for 32-bit ARM Windows
+>
+> An unofficial build of **Lite XL 2.1.8** for **32-bit ARM Windows**, which upstream does not
+> ship. Measured running on **Windows RT 8.0**, **Windows RT 8.1** (Surface RT, Tegra 3) and
+> **Windows 10 ARM32** (Surface 2, Tegra 4) - both passes on each.
+>
+> **[Download the release](https://github.com/hamed7ir/lite-xl-rt/releases)** &middot;
+> **[ARM32 documentation](README-ARM32.md)** &middot; the **Toolchain** section there explains why
+> a patched clang is required, and how to reproduce it with stock clang 18.1.8.
+>
+> This branch differs from upstream `v2.1.8` by **three commits**: two one-file changes to the
+> source and the build, and this documentation. Everything below is upstream's own README,
+> unchanged. Please report problems with the ARM32 build here, not to upstream.
+
+---
+
 # Lite XL
 
 [![CI]](https://github.com/lite-xl/lite-xl/actions/workflows/build.yml)
